@@ -2,4 +2,9 @@
 
 <!-- to display the HeroesComponent you must add it to the template of the shell AppComponent -->
 <!-- this is the app-heroes from the Element Selector for the HeroesComponent -->
-<app-heroes></app-heroes>
+
+<nav><a routerLink="/dashboard">Dashboard</a></nav>
+<nav><a routerLink="/heroes">Heroes</a></nav>
+<!-- instead of <app-heroes></app-heroes> will use routing -->
+<router-outlet></router-outlet>
+<app-messages></app-messages>

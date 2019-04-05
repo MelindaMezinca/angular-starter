@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Hero } from "../hero";
-import { HEROES } from "../mock-heroes";
+import { HeroService } from "../hero.service";
 
 @Component({
   selector: "app-heroes", // the component's CSS element selector
@@ -8,13 +8,17 @@ import { HEROES } from "../mock-heroes";
   styleUrls: ["./heroes.component.css"] // the location of the component's private CSS styles
 })
 export class HeroesComponent implements OnInit {
-  heroes = HEROES;
-  selectedHero: Hero;
-  onSelect(hero: Hero): void {
-    this.selectedHero = hero;
+  heroes: Hero[];
+
+  // inject the service in the constructor by specifying a constructor parameter with the dependency type
+  constructor(private heroService: HeroService) {}
+
+  ngOnInit() {
+    this.getHeroes();
   }
 
-  constructor() {}
-
-  ngOnInit() {}
+  // make async call using subscribe
+  getHeroes(): void {
+    this.heroService.getHeroes().subscribe(heroes => (this.heroes = heroes));
+  }
 }
