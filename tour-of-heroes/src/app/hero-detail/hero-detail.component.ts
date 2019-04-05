@@ -29,5 +29,9 @@ export class HeroDetailComponent implements OnInit {
     this.location.back();
   }
 
+  save(): void {
+    this.heroService.updateHero(this.hero).subscribe(() => this.goBack());
+  }
+
   @Input() hero: Hero; // hero must be an input property, because the external HeroesComponet will bind to it
 }

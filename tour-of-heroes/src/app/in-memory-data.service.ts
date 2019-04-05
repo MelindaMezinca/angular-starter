@@ -19,7 +19,7 @@ export class InMemoryDataService implements InMemoryDbService {
       { id: 19, name: "Magma" },
       { id: 20, name: "Tornado" }
     ];
-    return heroes;
+    return { heroes };
   }
 
   // ensure that a hero always has an id, if the heroes array is empty => initial number 11, otherwise => return the highest hero id + 1
